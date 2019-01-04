@@ -18,6 +18,6 @@ public interface IAdminDAO {
 
     void deleteAdmin(String Cin);
 
-    /*boolean AdminExists(String title, String category);*/
+    boolean AdminExists(String cin);
 }
  

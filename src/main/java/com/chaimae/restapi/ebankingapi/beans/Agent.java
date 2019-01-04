@@ -1,8 +1,12 @@
 package com.chaimae.restapi.ebankingapi.beans;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "agents")
 public class Agent {
 
     @Id

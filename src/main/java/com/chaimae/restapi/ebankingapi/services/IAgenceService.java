@@ -1,7 +1,7 @@
 package com.chaimae.restapi.ebankingapi.services;
 
 import com.chaimae.restapi.ebankingapi.beans.Agence;
-import com.chaimae.restapi.ebankingapi.beans.Operation;
+import com.chaimae.restapi.ebankingapi.beans.Agence;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface IAgenceService {
 
     Agence getAgenceById(int id);
 
-    boolean addAgence(Operation operation);
+    boolean addAgence(Agence agence);
 
     void updateAgence(Agence agence);
 

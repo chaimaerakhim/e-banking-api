@@ -41,7 +41,6 @@ public class OperationDAO implements IOperationDAO {
 		cl.setDate(operation.getDate());
 
 		entityManager.flush();
-
 	}
 
 	@Override
@@ -49,11 +48,11 @@ public class OperationDAO implements IOperationDAO {
 		entityManager.remove(getOperationById(id));
 	}
 
-/*	@Override
-	public boolean OperationExists(String title, String category) {
-		String hql = "'FROM operations as atcl WHERE atcl.title =' ? 'and atcl.category' = ?";
-		int count = entityManager.createQuery(hql).setParameter(1, title)
-		              .setParameter(2, category).getResultList().size();
+	@Override
+	public boolean OperationExists(int id) {
+		String hql = "'FROM operations as atcl WHERE atcl.id=' ?";
+		int count = entityManager.createQuery(hql).setParameter(1, id)
+		              .getResultList().size();
 		return count > 0 ? true : false;
-	}*/
+	}
 }

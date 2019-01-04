@@ -19,6 +19,6 @@ public interface ICompteDAO {
 
     void deleteCompte(int id);
 
-    /*boolean ClientExists(String title, String category);*/
+    boolean CompteExists(int id);
 }
  

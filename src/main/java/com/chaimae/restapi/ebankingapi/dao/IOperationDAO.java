@@ -18,6 +18,6 @@ public interface IOperationDAO {
 
     void deleteOperation(int id);
 
-    /*boolean ClientExists(String title, String category);*/
+    boolean OperationExists(int id);
 }
  

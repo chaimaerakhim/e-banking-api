@@ -18,6 +18,6 @@ public interface IClientDAO {
 
     void deleteClient(String Cin);
 
-    /*boolean ClientExists(String title, String category);*/
+    boolean ClientExists(String cin);
 }
  

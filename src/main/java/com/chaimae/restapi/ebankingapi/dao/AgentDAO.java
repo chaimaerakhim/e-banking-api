@@ -1,6 +1,6 @@
 package com.chaimae.restapi.ebankingapi.dao;
 
-import com.chaimae.restapi.ebankingapi.beans.Client;
+import com.chaimae.restapi.ebankingapi.beans.Agent;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,51 +10,50 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class ClientDAO implements IClientDAO {
+public class AgentDAO implements IAgentDAO {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
-	public Client getClientByCin(String Cin) {
-		return entityManager.find(Client.class, Cin);
+	public Agent getAgentByCin(String Cin) {
+		return entityManager.find(Agent.class, Cin);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Client> getAllClients() {
-		String hql = "FROM Client as cl ORDER BY cl.cin";
-		return (List<Client>) entityManager.createQuery(hql).getResultList();
+	public List<Agent> getAllAgents() {
+		String hql = "FROM Agent as cl ORDER BY cl.cin";
+		return (List<Agent>) entityManager.createQuery(hql).getResultList();
 	}
 
 	@Override
-	public void addClient(Client client) {
-		entityManager.persist(client);
+	public void addAgent(Agent agent) {
+		entityManager.persist(agent);
 	}
 
 	@Override
-	public void updateClient(Client client) {
-		Client cl = getClientByCin(client.getCin());
-		cl.setNom(client.getNom());
-		cl.setPrenom(client.getPrenom());
+	public void updateAgent(Agent agent) {
+		Agent cl = getAgentByCin(agent.getCin());
+		cl.setNom(agent.getNom());
+		cl.setPrenom(agent.getPrenom());
 		cl.setLogin(cl.getLogin());
 		cl.setPassword(cl.getPassword());
 		cl.setEmail(cl.getEmail());
 		cl.setAddresse(cl.getAddresse());
 		cl.setTel(cl.getTel());
-		cl.setId_compte(cl.getId_compte());
 		entityManager.flush();
 
 	}
 
 	@Override
-	public void deleteClient(String cin) {
-		entityManager.remove(getClientByCin(cin));
+	public void deleteAgent(String cin) {
+		entityManager.remove(getAgentByCin(cin));
 	}
 
 	@Override
-	public boolean ClientExists(String cin) {
-		String hql = "'FROM clients as atcl WHERE atcl.cin =' ? ";
+	public boolean AgentExists(String cin) {
+		String hql = "'FROM agents as atcl WHERE atcl.cin =' ? '";
 		int count = entityManager.createQuery(hql).setParameter(1, cin)
 		              .getResultList().size();
 		return count > 0 ? true : false;

@@ -52,11 +52,11 @@ public class AdminDAO implements IAdminDAO {
 		entityManager.remove(getAdminByCin(cin));
 	}
 
-/*	@Override
-	public boolean AdminExists(String title, String category) {
-		String hql = "'FROM admins as atcl WHERE atcl.title =' ? 'and atcl.category' = ?";
-		int count = entityManager.createQuery(hql).setParameter(1, title)
-		              .setParameter(2, category).getResultList().size();
+	@Override
+	public boolean AdminExists(String cin) {
+		String hql = "'FROM admins as atcl WHERE atcl.cin =' ? ";
+		int count = entityManager.createQuery(hql).setParameter(1, cin)
+		              .getResultList().size();
 		return count > 0 ? true : false;
-	}*/
+	}
 }

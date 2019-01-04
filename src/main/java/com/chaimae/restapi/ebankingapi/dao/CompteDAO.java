@@ -48,11 +48,11 @@ public class CompteDAO implements ICompteDAO {
 		entityManager.remove(getCompteById(id));
 	}
 
-/*	@Override
-	public boolean CompteExists(String title, String category) {
-		String hql = "'FROM comptes as atcl WHERE atcl.title =' ? 'and atcl.category' = ?";
-		int count = entityManager.createQuery(hql).setParameter(1, title)
-		              .setParameter(2, category).getResultList().size();
+	@Override
+	public boolean CompteExists(String cin) {
+		String hql = "'FROM comptes as atcl WHERE atcl.cin =' ?";
+		int count = entityManager.createQuery(hql).setParameter(1, cin)
+		              .getResultList().size();
 		return count > 0 ? true : false;
-	}*/
+	}
 }
